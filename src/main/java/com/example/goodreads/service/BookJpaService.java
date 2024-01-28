@@ -83,7 +83,7 @@ public class BookJpaService implements BookRepository {
             bookJpaRepository.save(newBook);
             return newBook;
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid: bookId or book object!");
         }
     }
 
@@ -94,7 +94,7 @@ public class BookJpaService implements BookRepository {
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
-        throw new ResponseStatusException(HttpStatus.NO_CONTENT);
+        throw new ResponseStatusException(HttpStatus.NO_CONTENT, "Successfully deleted book object!");
     }
 
     @Override
@@ -103,7 +103,7 @@ public class BookJpaService implements BookRepository {
             Book book = bookJpaRepository.findById(bookId).get();
             return book.getPublisher();
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "The bookId is invalid!");
         }
     }
 
@@ -113,7 +113,7 @@ public class BookJpaService implements BookRepository {
             Book book = bookJpaRepository.findById(bookId).get();
             return book.getAuthors();
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "The bookId is invalid!");
         }
     }
 
