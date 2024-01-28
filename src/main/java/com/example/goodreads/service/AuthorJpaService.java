@@ -53,7 +53,7 @@ public class AuthorJpaService implements AuthorRepository {
             authorJpaRepository.save(new_author);
             return new_author;
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "The authorId or author obj you provided is invalid!");
         }
     }
 
@@ -70,8 +70,8 @@ public class AuthorJpaService implements AuthorRepository {
 
             authorJpaRepository.deleteById(authorId);
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "The authorId you provided is invalid!");
         }
-        throw new ResponseStatusException(HttpStatus.NO_CONTENT);
+        throw new ResponseStatusException(HttpStatus.NO_CONTENT, "Successfully deleted author!");
     }
 }
