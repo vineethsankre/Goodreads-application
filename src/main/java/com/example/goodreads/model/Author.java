@@ -33,7 +33,7 @@ public class Author {
     public int getAuthorId(){
         return authorId;
     }
-    public void setAuthorIdId(int authorId){
+    public void setAuthorId(int authorId){
         this.authorId = authorId;
     }
 
